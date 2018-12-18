@@ -1,0 +1,7 @@
+\frametitle{Overlay example}
+	\begin{itemize}
+		\only<1->{\item First item}
+		\uncover<2->{\item Second item}
+		\uncover<3->{\item Third item}
+		\only<1->{\item Fourth item}
+	\end{itemize}

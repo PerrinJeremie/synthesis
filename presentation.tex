@@ -42,15 +42,15 @@
 	\frametitle{Spécifications pour la Synthèse}
 	On utilise ici des tas symboliques.\\
 	\begin{center}
-	$\mathrm{\Sigma};\mathrm{\Gamma};\{\mathcal{P}\}\leadsto\{\mathcal{Q}\} | c$
+	$\Sigma;\Gamma;\{\mathcal{P}\}\leadsto\{\mathcal{Q}\} | c$
 	\end{center}
 	\begin{itemize}
-		\item $\mathrm{\Gamma}$ : environnement
-		\item $\mathrm{\Sigma}$ : contexte
+		\item $\Gamma$ : environnement
+		\item $\Sigma$ : contexte
 		\item $\mathcal{P}$,$\phi$,P : précondition, ses parties pure et spatiale
 		\item $\mathcal{Q}$,$\psi$,Q : postcondition, ses parties pure et spatiale
-		\item $GV(\mathrm{\Gamma},\mathcal{P},\mathcal{Q}) = Vars(\mathcal{P}) \backslash \mathrm{\Gamma}$ 
-		\item $EV(\mathrm{\Gamma},\mathcal{P},\mathcal{Q}) = Vars(\mathcal{Q}) \backslash (\mathrm{\Gamma} \cup Vars(\mathcal{P})$ 
+		\item $GV(\Gamma,\mathcal{P},\mathcal{Q}) = Vars(\mathcal{P}) \backslash \Gamma$ 
+		\item $EV(\Gamma,\mathcal{P},\mathcal{Q}) = Vars(\mathcal{Q}) \backslash (\Gamma \cup Vars(\mathcal{P})$ 
 	\end{itemize}
 \end{frame}
 \begin{frame}[fragile]
@@ -234,6 +234,16 @@
 \end{frame}
 \begin{frame}[fragile]
 	\frametitle{Algorithme de synthèse basé sur SSL}
+   \begin{itemize}
+      \item Recherche en profondeur dans l'espace des dérivations SSL valides.
+      \item Recherche récursive avec backtracking.
+   \end{itemize}
+   Pour synthétiser un programme, besoin de
+   \begin{itemize}
+       \item contexte et environnement ;
+       \item préconditions et postconditions ;
+       \item liste de règles possibles ;
+   \end{itemize}
 \end{frame}
 \begin{frame}[fragile]
 	\frametitle{Optimisations et extensions}
@@ -259,6 +269,9 @@
 	\frametitle{Benchmark}
 	\includegraphics[width=11cm]{figures/benchmark.png}
 \end{frame}
-
+\begin{frame}
+   \frametitle{L'algorithme}
+   \includegraphics[width=\linewidth]{figures/algorithm.png}
+\end{frame}
 
 \end{document}

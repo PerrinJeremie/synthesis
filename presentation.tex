@@ -156,15 +156,46 @@
 \begin{frame}[fragile]
 	\frametitle{Synthèse pour prédicats inductifs}
 	\framesubtitle{Retour à l'étiquette de niveau}
+   \begin{description}
+      \item[But :] éviter les dérivations infinies (ici donne programmes qui ne terminent 
+                   pas en s'appellant eux-mêmes).
+      \item[Idéalement :] prédicats bien-fondés et applications récursives sur tas 
+                       strictement plus petits.      
+      \item[Méthode :] avec les tags, on empêche la fonction de s'appeler sur le même 
+                       tas en post-condition.
+   \end{description}
 \end{frame}
+
 \begin{frame}[fragile]
 	\frametitle{Synthèse pour prédicats inductifs}
 	\framesubtitle{Déroulement dans la postcondition}
+      Si un prédicat inductif dans la postcondition.
+      
+      Une règle \textsc{CLOSE}.
+      \begin{itemize}
+         \item Choisit non déterministiquement la partie du prédicat à satisfaire.
+         \item Met à jour la postconditions avec la postcondition de la partie choisie.
+         \item Incrémente l'étiquette.
+      \end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]
 	\frametitle{Permettre l'appel de procèdure}
 	\framesubtitle{Enlévement de l'appel}
+   \includegraphics[width=\linewidth]{figures/abduction1.png}
+   \textsc{Induction} ajoute cette fonction à l'environnement.
+   \includegraphics[width=\linewidth]{figures/abduction2.png}
+   \begin{center}
+      \textsc{Open} (plus d'autres règles) créent ce but.
+      \includegraphics[width=\linewidth]{figures/abduction3.png}
+      Peut pas utiliser \textsc{CALL} (il faut $r \mapsto nxt2$).
+   \end{center}
+   
+   Solution : ajout d'une règle \textsc{AbduceCall} qui \og prépare \fg le tas.
+              Essaie d'unifier les préconditions de notre but et celles de la 
+              fonction qu'on veut appeler.
 \end{frame}
+
 \begin{frame}[fragile]
 	\frametitle{Synthetic Separation Logic}
 	\includegraphics[width=11cm]{figures/syntax.png}

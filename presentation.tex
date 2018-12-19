@@ -42,15 +42,15 @@
 	\frametitle{Spécifications pour la Synthèse}
 	On utilise ici des tas symboliques.\\
 	\begin{center}
-	$\mathrm{\Sigma};\mathrm{\Gamma};\{\mathcal{P}\}\leadsto\{\mathcal{Q}\} | c$
+	$\mathnormal{\Sigma};\mathnormal{\Gamma};\{\mathcal{P}\}\leadsto\{\mathcal{Q}\} | c$
 	\end{center}
 	\begin{itemize}
-		\item $\mathrm{\Gamma}$ : environnement
-		\item $\mathrm{\Sigma}$ : contexte
+		\item $\mathnormal{\Gamma}$ : environnement
+		\item $\mathnormal{\Sigma}$ : contexte
 		\item $\mathcal{P}$,$\phi$,P : précondition, ses parties pure et spatiale
 		\item $\mathcal{Q}$,$\psi$,Q : postcondition, ses parties pure et spatiale
-		\item $GV(\mathrm{\Gamma},\mathcal{P},\mathcal{Q}) = Vars(\mathcal{P}) \backslash \mathrm{\Gamma}$ 
-		\item $EV(\mathrm{\Gamma},\mathcal{P},\mathcal{Q}) = Vars(\mathcal{Q}) \backslash (\mathrm{\Gamma} \cup Vars(\mathcal{P})$ 
+		\item $GV(\mathrm{\Gamma},\mathcal{P},\mathcal{Q}) = Vars(\mathcal{P}) \backslash \mathnormal{\Gamma}$ 
+		\item $EV(\mathnormal{\Gamma},\mathcal{P},\mathcal{Q}) = Vars(\mathcal{Q}) \backslash (\mathnormal{\Gamma} \cup Vars(\mathcal{P})$ 
 	\end{itemize}
 \end{frame}
 \begin{frame}[fragile]
@@ -222,7 +222,7 @@
 	\frametitle{Garanties Formelles}
 	\includegraphics[width=11cm]{figures/nvalid.png}\\
 	
-	On définit une correction vis à vis de la pré et post condition mais seulement pour des tas de taille n.
+	On définit une validité vis à vis de la pré et post condition mais seulement pour des tas de taille n.
 \end{frame}
 \begin{frame}[fragile]
 	\frametitle{Garanties Formelles}

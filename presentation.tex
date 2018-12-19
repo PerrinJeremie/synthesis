@@ -1,9 +1,10 @@
 \documentclass{beamer}
-\usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage[latin1]{inputenc}
 \usepackage[francais]{babel}
 \usepackage{graphicx}
 \usepackage{default}
+\usepackage{amsfonts,amssymb}
+
 
 \title{Structuring the Synthesis of Heap-Manipulating Programs}
 
@@ -18,14 +19,41 @@
 	\begin{center}
 		\includegraphics[height=\baselineskip]{figures/swap.png}
 	\end{center}
-	Motivation : Faire avancer l'état de l'art en mati\'ere in synthesizing provably correct
-	heap-manipulating programs from declarative functional specifications
+	\textbf{Intérêt} : Faire avancer l'état de l'art en matiére de synthèse de programmes qui manipulent des pointeurs à partir de spécifications fonctionelles formelles.\\
+	\textbf{Idée Clé} : Utiliser la logique de séparation.\\
+	\textbf{Contributions} : Synthetic Separation Logic un systeme de preuve. Et SuSLik leur synthétiseur
 \end{frame}
 \begin{frame}[fragile]
 	\frametitle{Sp\'ecifications pour la Synth\`ese}
+	On utilise ici des tas symboliques.\\
+	\begin{center}
+	$\mathrm{\Sigma};\mathrm{\Gamma};\{\mathcal{P}\}\leadsto\{\mathcal{Q}\} | c$
+	\end{center}
+	\begin{itemize}
+		\item $\mathrm{\Gamma}$ : environnement
+		\item $\mathrm{\Sigma}$ : contexte
+		\item $\mathcal{P}$,$\phi$,P : précondition, ses parties pure et spatiale
+		\item $\mathcal{Q}$,$\psi$,Q : postcondition, ses parties pure et spatiale
+		\item $GV(\mathrm{\Gamma},\mathcal{P},\mathcal{Q}) = Vars(\mathcal{P}) \backslash \mathrm{\Gamma}$ 
+		\item $EV(\mathrm{\Gamma},\mathcal{P},\mathcal{Q}) = Vars(\mathcal{Q}) \backslash (\mathrm{\Gamma} \cup Vars(\mathcal{P})$ 
+	\end{itemize}
 \end{frame}
 \begin{frame}[fragile]
-	\frametitle{R\`egles d'Inf\'erence Basiques}
+	\frametitle{Règles d'Inférence Basiques}
+	\framesubtitle{Un exemple}
+	\includegraphics[width=11cm]{figures/basic.png}
+\end{frame}
+\begin{frame}
+	\frametitle{Règles d'Inférence Basiques}
+	\begin{itemize}
+		\item[EMP] terminale, parties spatiales vide, $EV = \emptyset$, $\phi \implies \psi$ \\ skip
+		\item[READ] assigne la valeur d'une GV a une nouvelle variable de programme et substitue toutes les occurences.\\
+		let b = *x
+		\item[WRITE] assigne l'évaluation d'une expression e à une case mémoire.\\
+		*x = b 
+		\item[FRAME] Enlève une partie spatiale commune à $\phi$ et $\psi$, si cela ne crée pas de variable existentielle.\\
+		skip
+	\end{itemize}
 \end{frame}
 \begin{frame}[fragile]
 	\frametitle{Unification Spatiale et Backtrack}

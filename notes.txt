@@ -1,0 +1,10 @@
+
+SSL
+
+a system of deductive synthesis rules, which prescribe how to decompose specifications for complex
+programs into specifications for simpler programs, while synthesizing the corresponding computa-
+tions compositionally. In essence, SSL is a proof system for a new transformation judgment P { Q| c
+(reads as “the assertion P transforms into Q via a program c”), which unifies SL entailment P ⊢ Q
+and verification {P} c {Q}, with the former expressible as P { Q| skip .
+
+
